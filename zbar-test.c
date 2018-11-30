@@ -50,10 +50,10 @@ static void get_data(const char *name,
     *width  = header.biWidth;
     *height = header.biHeight;
     stride  = ALIGN(header.biWidth * 3, 4);
-    pdata   = malloc(header.biWidth * header.biWidth);
+    pdata   = malloc(header.biWidth * header.biHeight);
     *raw    = pdata;
     if (pdata) {
-        pdata += header.biWidth * header.biWidth;
+        pdata += header.biWidth * header.biHeight;
         for (i=0; i<header.biHeight; i++) {
             pdata -= header.biWidth;
             for (j=0; j<header.biWidth; j++) {
